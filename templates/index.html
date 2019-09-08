@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <title>File upload Python with Amazon S3</title>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="shortcut icon" href="https://res.cloudinary.com/mhmd/image/upload/v1557366994/img_epm3iz.png" />
+   <link rel="apple-touch-icon" href="https://res.cloudinary.com/mhmd/image/upload/v1557366994/img_epm3iz.png" />
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   <style>
+      body {
+         background: #E05243;
+         background: -webkit-linear-gradient(to right, #E05243, #E05243);
+         background: linear-gradient(to right, #8C3123, #8C3123);
+         height: 100vh;
+      }
+      .btn.btn.btn-primary{
+         background-color: #8C3123 !important;
+         border-color: #8C3123 !important;
+      }
+      .rounded-lg {
+         border-radius: 1rem;
+      }
+
+      .custom-file-label.rounded-pill {
+         border-radius: 50rem;
+      }
+
+      .custom-file-label.rounded-pill::after {
+         border-radius: 0 50rem 50rem 0;
+      }
+   </style>
+   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+   <script type="text/javascript">
+      $(document).ready(function () {
+         var button = $('#file-upload');
+         $(button).prop('disabled', true);
+         $('input[type="file"]').change(function (e) {
+            var fileLength = e.target.files;
+            if (fileLength.length > 0) $(button).prop('disabled', false);
+            else $(button).prop('disabled', true);
+         });
+      });
+   </script>
+</head>
+
+<body>
+   <section>
+      <div class="container p-5">
+         <div class="row">
+            <div class="col-lg-5 mx-auto">
+               <div class="p-5 bg-white shadow rounded-lg"><img
+                     src="https://www.systutorials.com/wp/files/2015/11/AmazonS3-e1448589113191.png" alt="" width="200"
+                     class="d-block mx-auto mb-4 rounded-pill">
+
+                  <!-- Default bootstrap file upload-->
+
+                  <h6 class="text-center mb-4 text-muted">
+                     You can use File upload Python with Amazon S3 (@ <a target="_blank" href="https://www.linkedin.com/in/nilotpalchanda/">Nilotpal</a>)
+                  </h6>
+
+                  <div class="custom-file overflow-hidden rounded-pill mb-5">
+                     <form action="{{ url_for('index') }}" method="POST" enctype="multipart/form-data">
+                        <input id="customFile" type="file" class="custom-file-input rounded-pill" name="file"
+                           multiple />
+                        <label for="customFile" class="custom-file-label rounded-pill">Choose file</label>
+                  </div>
+                  <!-- End -->
+                  <!-- Custom bootstrap upload file-->
+                  <input type="submit" for="fileUpload" id="file-upload"
+                     class="file-upload btn btn-primary btn-block rounded-pill shadow"><i
+                     class="fa fa-upload mr-2"></i></input>
+                  <!-- End -->
+                  </form>
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                  <div class="alert alert-primary" role="alert">
+                     {% for message in messages %}
+                     {{ message }}
+                     {% endfor %}
+                  </div>
+                  {% endif %}
+                  {% endwith %}
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+</body>
+
+</html>
