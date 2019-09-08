@@ -1,4 +1,4 @@
-#### Flask  Mongo DB Image File Upload
+#### Flask Amazon S3 File Upload
 ```python
   pip install -r requirements.txt
 ```
