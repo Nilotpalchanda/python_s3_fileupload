@@ -6,7 +6,7 @@ backcall==0.1.0
 bleach==3.1.0
 boto3==1.5.31
 botocore==1.8.45
-bottle==0.12.17
+bottle==0.12.19
 class-registry==2.1.2
 click==6.7
 colorama==0.4.1
